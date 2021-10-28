@@ -9,11 +9,16 @@ startquizbtn.addEventListener("click", function(){
 })
 
 // timer counts down
-timeremaining = 60
+let quiztimerEl = document.getElementById('quiztimer');
+
+seconds = 60
 function timer(){
-    if (timeremaining > 0) {
-        timeremaining--;
-        console.log(timeremaining);
+    if (seconds > 0) {
+        seconds--;
+        quiztimerEl.textContent = "Remaining time: " + seconds;
+    }
+    else {
+        clearInterval();
     }
 }
 
