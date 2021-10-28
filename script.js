@@ -1,11 +1,14 @@
-debugger;
+// debugger;
+
+document.getElementById('finish').hidden = true;
+document.getElementById('highscores').hidden = true;
 
 //when start button is clicked
 let startquizbtn = document.querySelector("#startquiz");
 
 startquizbtn.addEventListener("click", function(){
-    console.log("start button");
     setInterval(timer, 1000);
+    quizmain();
 })
 
 // timer counts down
@@ -22,7 +25,11 @@ function timer(){
     }
 }
 
-// timer is updated 
-
-
 // quiz starts
+function quizmain(){
+    console.log("start quiz");
+    document.getElementById('instructions').hidden = true;
+
+
+
+}
