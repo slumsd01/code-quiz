@@ -18,13 +18,16 @@
     <section id="instructions">
         <h1>Coding Quiz</h1>
         <h3>
-            Try to answer as many questions as you can in 60 seconds. <br>
+            Try to answer as many questions as you can. <br>
             Incorrect answers will deduct 10 seconds from the remaining time.
         </h3>
-        <button class="btn" id="startquiz">START!</button>
+        <button id="startquiz">START!</button>
     </section>
 
-    <section class="quizquestions"></main>
+    <section id="quizquestions">
+        <div class="question"></div>
+        <div class="choices"></div>
+    </section>
 
     <section id="finish">
         <h1>All done!</h1>
@@ -40,9 +43,9 @@
     
     <section id="highscores">
         <h3>High scores:</h3>
-        <li id="scorelist"></li>
-        <button class="btn" id="goback">GO BACK</button>
-        <button class="btn" id=clearscores>CLEAR HIGH SCORES</button>
+        <li></li>
+        <button id="goback">GO BACK</button>
+        <button id=clearscores>CLEAR HIGH SCORES</button>
     </section>
 
     <script src="./script.js"></script>
