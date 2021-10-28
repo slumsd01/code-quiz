@@ -12,7 +12,9 @@
 <body>
     <header>
         <a href="">View high scores</a>
-        <p>Remaining time:</p>
+        <div class="remainingtime">
+            <p>Remaining time:</p>
+        </div>
     </header>
     <div class="instructions">
         <h1>Coding Quiz</h1>
@@ -20,7 +22,7 @@
             Try to answer as many questions as you can in 60 seconds. <br>
             Incorrect answers will deduct 10 seconds from the remaining time.
         </h3>
-        <button>START!</button>
+        <button class="btn" id="startquiz">START!</button>
     </div>
 
     <div class="finish">
@@ -31,17 +33,18 @@
             <form>
                 <textarea>AA</textarea>
             </form>
-            <button>SUBMIT</button>
+            <button class="btn">SUBMIT</button>
         </div>
     </div>
     
     <div class="highscores">
         <h3>High scores:</h3>
-        <button>GO BACK</button>
-        <button>CLEAR HIGH SCORES</button>
+        <li></li>
+        <button class="btn" id="goback">GO BACK</button>
+        <button class="btn" id=clearscores>CLEAR HIGH SCORES</button>
     </div>
 
-    <script src="./assets/js/script.js"></script>
+    <script src="./script.js"></script>
  
 </body>
 </html>
