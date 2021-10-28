@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.enterinitials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enterinitials > h3,form,button {
+    margin:0 10px;
+  }
