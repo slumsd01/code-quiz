@@ -45,7 +45,11 @@ let questionarray = [
         correctanswer: "Albatross"
     },
 ]
+
 let quizquestionsEl = document.querySelector(".question");
+let answerchoicesEl = document.querySelector(".choices");
+
+//end game
 
 function quizmain(){
     console.log("start quiz");
@@ -57,12 +61,29 @@ function quizmain(){
             let questionEl = document.createElement("h3");
             questionEl.textContent = questionarray[currentquestionindex].question
             quizquestionsEl.appendChild(questionEl);
-            
 
+            let answerchoicecontainerEl = document.createElement("div");
+            answerchoicesEl.appendChild(answerchoicecontainerEl);
             
-            
-            //display next question
-            currentquestionindex++
+            for (let i = 0; i < questionarray[currentquestionindex].choices.length; i++) {
+                let answerbuttonEl = document.createElement("button");
+                answerbuttonEl.textContent = questionarray[currentquestionindex].choices[i];
+                answerchoicecontainerEl.appendChild(answerbuttonEl);
+            }
+
+            document.querySelector(".choices").addEventListener("click", function(){
+                console.log("answer");
+                
+                //correct or incorrect
+
+
+
+                //display next question
+                currentquestionindex++
+                questionEl.remove();
+                answerchoicecontainerEl.remove();
+                displayquestion();
+            });  
         }
     }
     
