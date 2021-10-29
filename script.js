@@ -3,7 +3,6 @@ debugger;
 document.getElementById('finish').hidden = true;
 document.getElementById('highscores').hidden = true;
 
-
 //when start button is clicked
 let startquizbtn = document.querySelector("#startquiz");
 
@@ -49,43 +48,58 @@ let questionarray = [
 let quizquestionsEl = document.querySelector(".question");
 let answerchoicesEl = document.querySelector(".choices");
 
-//end game
 
 function quizmain(){
     console.log("start quiz");
     document.getElementById('instructions').hidden = true;
-
-
-    function displayquestion(){
-        if (currentquestionindex < questionarray.length) {
-            let questionEl = document.createElement("h3");
-            questionEl.textContent = questionarray[currentquestionindex].question
-            quizquestionsEl.appendChild(questionEl);
-
-            let answerchoicecontainerEl = document.createElement("div");
-            answerchoicesEl.appendChild(answerchoicecontainerEl);
-            
-            for (let i = 0; i < questionarray[currentquestionindex].choices.length; i++) {
-                let answerbuttonEl = document.createElement("button");
-                answerbuttonEl.textContent = questionarray[currentquestionindex].choices[i];
-                answerchoicecontainerEl.appendChild(answerbuttonEl);
-            }
-
-            document.querySelector(".choices").addEventListener("click", function(){
-                console.log("answer");
-                
-                //correct or incorrect
-
-
-
-                //display next question
-                currentquestionindex++
-                questionEl.remove();
-                answerchoicecontainerEl.remove();
-                displayquestion();
-            });  
-        }
-    }
-    
     displayquestion();
+}
+
+//display question
+function displayquestion(){
+    if (currentquestionindex < questionarray.length) {
+        let questionEl = document.createElement("h3");
+        questionEl.textContent = questionarray[currentquestionindex].question
+        quizquestionsEl.appendChild(questionEl);
+
+        
+        for (let i = 0; i < questionarray[currentquestionindex].choices.length; i++) {
+            let answerbuttonEl = document.createElement("button");
+            answerbuttonEl.setAttribute("onclick", "checkanswer('"+ questionarray[currentquestionindex].choices[i] +"')");
+            answerbuttonEl.textContent = questionarray[currentquestionindex].choices[i];
+            answerchoicesEl.appendChild(answerbuttonEl);
+        }        
+    }
+
+    if (currentquestionindex >= questionarray.length) {
+        endgame();
+    }
+}
+
+//correct or incorrect
+function checkanswer(answer){
+    if (answer != questionarray[currentquestionindex].correctanswer){
+        console.log(seconds);
+        seconds = seconds-10;
+        console.log(seconds);
+    }
+    console.log("correct!")
+    displaynextquestion();
+}
+
+// display next question
+function displaynextquestion() {
+    currentquestionindex++
+    quizquestionsEl.innerHTML="";
+    answerchoicesEl.innerHTML="";
+    displayquestion();
+}
+
+let finalscoreEl = document.getElementById('finalscore');
+
+function endgame() {
+    console.log("end quiz");
+    document.getElementById('quiztimer').hidden = true;
+    document.getElementById('finish').hidden = false;
+    finalscoreEl.textContent = seconds;
 }
