@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./style.css" />
-
 </head>
 
 <body>
@@ -18,7 +17,7 @@
     <section id="instructions">
         <h1>Coding Quiz</h1>
         <h3>
-            Try to answer as many questions as you can. <br>
+            Try to answer as many questions as you can in 60 seconds. <br>
             Incorrect answers will deduct 10 seconds from the remaining time.
         </h3>
         <button id="startquiz">START!</button>
@@ -33,20 +32,20 @@
             <h1>All done!</h1>
             <h3>Your final score is:</h3>
             <h2 id="finalscore"></h2>
-        <div class="enterinitials">
+        <div>
             <h3>Enter initials:</h3>
-            <form>
-                <textarea>AA</textarea>
+            <form class="enterinitials">
+                <input type="text" name="initials" placeholder="Enter Initials Here">
             </form>
-            <button class="btn">SUBMIT</button>
+            <button type="submit">SUBMIT</button>
         </div>
     </section>
     
     <section id="highscores">
         <h3>High scores:</h3>
-        <li></li>
-        <button id="goback">GO BACK</button>
-        <button id=clearscores>CLEAR HIGH SCORES</button>
+        <ul id="highscorelist"></ul>
+        <button id="backbtn">GO BACK</button>
+        <button id="clearscoresbtn">CLEAR HIGH SCORES</button>
     </section>
 
     <script src="./script.js"></script>
